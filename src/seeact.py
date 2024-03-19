@@ -456,9 +456,9 @@ async def main(config, base_dir) -> None:
                     # Format prompts for LLM inference
                     prompt = generate_prompt(task=confirmed_task, previous=taken_actions, choices=choices,
                                              experiment_split="SeeAct")
-                    if dev_mode:
-                        for prompt_i in prompt:
-                            logger.info(prompt_i)
+                    #if dev_mode:
+                    #    for prompt_i in prompt:
+                    #        logger.info(prompt_i)
 
                     output0 = generation_model.generate(prompt=prompt, image_path=input_image_path, turn_number=0)
 
