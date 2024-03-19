@@ -112,15 +112,15 @@ class OpenaiEngine(Engine):
                                                                                                     "detail": "high"},
                                                                  }]},
             ]
-            breakpoint()
-            response1 = openai.ChatCompletion.create(
-                model=model if model else self.model,
-                messages=prompt1_input,
-                max_tokens=max_new_tokens if max_new_tokens else 4096,
-                temperature=temperature if temperature else self.temperature,
-                **kwargs,
-            )
-            answer1 = [choice["message"]["content"] for choice in response1["choices"]][0]
+            #response1 = openai.ChatCompletion.create(
+            #    model=model if model else self.model,
+            #    messages=prompt1_input,
+            #    max_tokens=max_new_tokens if max_new_tokens else 4096,
+            #    temperature=temperature if temperature else self.temperature,
+            #    **kwargs,
+            #)
+            #answer1 = [choice["message"]["content"] for choice in response1["choices"]][0]
+            answer1 = 'okay...'
 
             return answer1
         elif turn_number == 1:
@@ -133,14 +133,23 @@ class OpenaiEngine(Engine):
                                                                                                     "detail": "high"}, }]},
                 {"role": "assistant", "content": [{"type": "text", "text": f"\n\n{ouput__0}"}]},
                 {"role": "user", "content": [{"type": "text", "text": prompt2}]}, ]
-            response2 = openai.ChatCompletion.create(
-                model=model if model else self.model,
-                messages=prompt2_input,
-                max_tokens=max_new_tokens if max_new_tokens else 4096,
-                temperature=temperature if temperature else self.temperature,
-                **kwargs,
-            )
-            return [choice["message"]["content"] for choice in response2["choices"]][0]
+            breakpoint()
+            #response2 = openai.ChatCompletion.create(
+            #    model=model if model else self.model,
+            #    messages=prompt2_input,
+            #    max_tokens=max_new_tokens if max_new_tokens else 4096,
+            #    temperature=temperature if temperature else self.temperature,
+            #    **kwargs,
+            #)
+            answer1 = '''
+ELEMENT: E
+
+ACTION: CLICK
+
+VALUE: None
+            '''
+            return answer1
+            #return [choice["message"]["content"] for choice in response2["choices"]][0]
 
 
 class OpenaiEngine_MindAct(Engine):
