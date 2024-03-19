@@ -112,6 +112,7 @@ class OpenaiEngine(Engine):
                                                                                                     "detail": "high"},
                                                                  }]},
             ]
+            breakpoint()
             response1 = openai.ChatCompletion.create(
                 model=model if model else self.model,
                 messages=prompt1_input,
